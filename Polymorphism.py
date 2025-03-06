@@ -39,5 +39,3 @@ print(f'Subtraction: {mathematical_process(subtraction, 12, 4)}')
 print(f'Multiplication: {mathematical_process(multiplication, 3 , 7)}')
 print(f'Divison: {mathematical_process(divison, 44, 6)}' )
 print(f'Mod: {mathematical_process(mod, 79, 13)}')
-
-
