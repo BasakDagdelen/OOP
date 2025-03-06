@@ -39,10 +39,10 @@ class PaparaPayment(Payment):
         super().__init__(amount)
         self.papara_id = papara_id
         self.recipient_name = recipient_name
-        self.__payment_date = datetime.now().strftime("%Y-%m-%d %H:%M")
+        self.payment_date = datetime.now().strftime("%Y-%m-%d %H:%M")
         
     def process_payment(self):  
-        print(f"Sayın {self.papara_id[0:6]}*** no'lu kullanıcımız {self.__payment_date} tarihinde hesabınızdan {self.recipient_name} adına {self.amount} TL para gönderilmiştir...")
+        print(f"Sayın {self.papara_id[0:6]}*** no'lu kullanıcımız {self.payment_date} tarihinde hesabınızdan {self.recipient_name} adına {self.amount} TL para gönderilmiştir...")
   
   
      
