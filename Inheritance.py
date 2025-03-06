@@ -31,6 +31,7 @@ class BitcoinPayment(Payment):
         
     def process_payment(self):
         print(f'{self.wallet_address[:6]}*** bitcoin cüzdan ile {self.amount} TL ödeme yapıldı. ')
+     
         
         
 class PaparaPayment(Payment):        
@@ -45,13 +46,13 @@ class PaparaPayment(Payment):
   
   
      
-credit_card = CreditCardPayment("123456789253", "Saygın Yılmaz", "12/01", "054", 5412.95)
-credit_card.process_payment()
+credit_card_payment = CreditCardPayment("123456789253", "Saygın Yılmaz", "12/01", "054", 5412.95)
+credit_card_payment.process_payment()
 
-bitcoin =BitcoinPayment(10255, "ec1788f3-817c-4c8b-8d81-98667d582510");
-bitcoin.process_payment()
+bitcoin_payment =BitcoinPayment(10255, "ec1788f3-817c-4c8b-8d81-98667d582510");
+bitcoin_payment.process_payment()
 
-papara= PaparaPayment("9c58173a-e00d-41a8-8fd9-620868baab55", "Burçak Demir", 12500)
-papara.process_payment()
+papara_payment= PaparaPayment("9c58173a-e00d-41a8-8fd9-620868baab55", "Burçak Demir", 12500)
+papara_payment.process_payment()
 
 #print(uuid4())
