@@ -131,3 +131,44 @@ ec1788*** bitcoin cüzdan ile 10255 TL ödeme yapıldı.
 Sayın 9c5817*** no'lu kullanıcımız 2025-03-07 10:43 tarihinde hesabınızdan Burçak Demir adına 12500 TL para gönderilmiştir...
 
 ```
+<br>
+
+## Encapsulation.py
+
+`CreditCard` sınıfı, kredi kartı bilgilerini ve işlemlerini yönetmek için kullanılır.
+
+### Özellikler
+
+-   `card_holder`: Kart sahibinin adı.
+-   `__card_number`: Kart numarası (gizli).
+-   `__balance`: Kart bakiyesi (gizli).
+-   `__limit`: Kart limiti (gizli).
+-   `payment_date`: Ödeme tarihi ve saati.
+-   `__payment_history`: Ödeme geçmişi (gizli).
+
+### Metotlar
+
+-   `__init__(self, card_number: str, card_holder: str, balance: float, limit: float)`: Sınıfın yapıcı metodu. Kart bilgilerini başlatır.
+-   `validate_card_number(self, card_number)`: Verilen kart numarasının geçerli olup olmadığını kontrol eder.
+-   `show_balance(self, card_number)`: Kart bakiyesini gösterir.
+-   `make_payment(self, card_number, amount)`: Karttan ödeme yapar. 1000 TL üzeri harcamalarda %10 indirim uygular.
+-   `show_payment_history(self, card_number)`: Ödeme geçmişini gösterir.
+-   `credit_limit_increment(self, card_number, amount)`: Kredi limitini artırır.
+
+### Kullanım Örneği
+
+```python
+credit_card = CreditCard("1234-5678-9876-5432", "Sevgi Erdem", 50000, 20000)
+print(credit_card.show_balance("1234-5678-9876-5432"))
+print(credit_card.make_payment("1234-5678-9876-5432", 100))
+print(credit_card.show_payment_history("1234-5678-9876-5432"))
+print(credit_card.credit_limit_increment("1234-5678-9876-5432", 15000))
+```
+## Çıktısı
+```
+Sayın Sevgi Erdem bakiyeniz: 50000 TL...
+Sayın Sevgi Erdem 2024-07-06 17:28 tarihinde 1234*** numaralı kartınızdan 100 TL tutarında harcama yapılmıştır. Güncel bakiyeniz: 49900 TL...
+['Tarih: 2024-07-06 17:28 -  Harcama: 100 TL...']
+Kredi limitiniz 15000 TL arttırıldı. Yeni limit: 35000 TL
+```
+<br>
