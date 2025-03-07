@@ -172,3 +172,38 @@ Sayın Sevgi Erdem 2024-07-06 17:28 tarihinde 1234*** numaralı kartınızdan 10
 Kredi limitiniz 15000 TL arttırıldı. Yeni limit: 35000 TL
 ```
 <br>
+
+## Encapsulation.py
+`Encapsulation.py`, temel matematiksel işlemleri gerçekleştiren sınıflar ve bu sınıfları kullanarak işlemleri dinamik olarak çağıran bir fonksiyon içerir.
+
+## Sınıflar
+
+-   `Add_Process`: Toplama işlemini gerçekleştirir.
+-   `Subtraction_Process`: Çıkarma işlemini gerçekleştirir.
+-   `Multiplication_Process`: Çarpma işlemini gerçekleştirir.
+-   `Division_Process`: Bölme işlemini gerçekleştirir.
+-   `Mod_Process`: Mod (kalan) işlemini gerçekleştirir.
+
+Her sınıf, `calculate` adında bir metoda sahiptir. Bu metot, iki tamsayı parametre alır ve ilgili matematiksel işlemi gerçekleştirir.
+
+## Fonksiyon
+
+-   `mathematical_process(process, a: int, b: int)`: Verilen işlem nesnesini ve iki tamsayıyı kullanarak matematiksel işlemi gerçekleştirir.
+
+## Kullanım Örneği
+
+```python
+
+add = Add_Process()
+subtraction = Subtraction_Process()
+multiplication = Multiplication_Process()
+divison = Division_Process()
+mod = Mod_Process()
+
+print(f'Add: {mathematical_process(add, 15, 10)}')
+print(f'Subtraction: {mathematical_process(subtraction, 12, 4)}')
+print(f'Multiplication: {mathematical_process(multiplication, 3 , 7)}')
+print(f'Divison: {mathematical_process(divison, 44, 6)}' )
+print(f'Mod: {mathematical_process(mod, 79, 13)}')
+```
+
