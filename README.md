@@ -84,3 +84,50 @@ Author: Fyodor Dostoyevski
 Publication year: 1866
 Type: Novel
 ```
+<br>
+
+## Inheritance.py
+
+*  Ödeme sistemi sınıflarını (kredi kartı, Bitcoin, Papara) ve örnek kullanım kodlarını içerir.
+
+## Sınıflar
+
+* `Payment`: Temel ödeme sınıfı. Diğer ödeme yöntemleri bu sınıftan türetilmiştir.
+    * `__init__(self, amount: float)`: Ödeme tutarını alır.
+    * `process_payment(self)`: Ödeme işlemini simüle eder.
+ 
+ <br>
+ 
+* `CreditCardPayment`: Kredi kartı ile ödeme sınıfı.
+    * `__init__(self, amount: float, card_number: str, card_holder: str, expiry_date: str, cvv: str)`: Kredi kartı bilgilerini ve ödeme tutarını alır.
+    * `process_payment(self)`: Kredi kartı ile ödeme işlemini simüle eder.
+ <br>  
+ 
+* `BitcoinPayment`: Bitcoin ile ödeme sınıfı.
+    * `__init__(self, amount: float, wallet_address: str)`: Bitcoin cüzdan adresini ve ödeme tutarını alır.
+    * `process_payment(self)`: Bitcoin ile ödeme işlemini simüle eder.
+ <br>
+    
+* `PaparaPayment`: Papara ile ödeme sınıfı.
+    * `__init__(self, amount: float, papara_id: str, recipient_name: str)`: Papara ID, alıcı adı ve ödeme tutarını alır.
+    * `process_payment(self)`: Papara ile ödeme işlemini simüle eder.
+
+## Örnek Kullanım
+
+```python
+credit_card_payment = CreditCardPayment(5412.95, "TRY", "123456789253", "Saygın Yılmaz", "12/01", "054")
+credit_card_payment.process_payment()
+
+bitcoin_payment = BitcoinPayment(10255, "TRY", "ec1788f3-817c-4c8b-8d81-98667d582510")
+bitcoin_payment.process_payment()
+
+papara_payment = PaparaPayment(12500, "TRY", "9c58173a-e00d-41a8-8fd9-620868baab55", "Burçak Demir")
+papara_payment.process_payment()
+```
+## Çıktısı
+```
+Sayın Saygın Yılmaz, adınıza kayıtlı sonu 9253 ile biten kartınızdan 5412.95 tutarında ödeme gerçekleştirdiniz...
+ec1788*** bitcoin cüzdan ile 10255 TL ödeme yapıldı. 
+Sayın 9c5817*** no'lu kullanıcımız 2025-03-07 10:43 tarihinde hesabınızdan Burçak Demir adına 12500 TL para gönderilmiştir...
+
+```
