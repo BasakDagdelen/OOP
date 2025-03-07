@@ -173,8 +173,8 @@ Kredi limitiniz 15000 TL arttırıldı. Yeni limit: 35000 TL
 ```
 <br>
 
-## Encapsulation.py
-`Encapsulation.py`, temel matematiksel işlemleri gerçekleştiren sınıflar ve bu sınıfları kullanarak işlemleri dinamik olarak çağıran bir fonksiyon içerir.
+## Polymorphism.py
+`Polymorphism.py`, temel matematiksel işlemleri gerçekleştiren sınıflar ve bu sınıfları kullanarak işlemleri dinamik olarak çağıran bir fonksiyon içerir.
 
 ## Sınıflar
 
