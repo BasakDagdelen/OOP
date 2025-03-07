@@ -33,7 +33,7 @@ Kitapların bir listesini tutar. Kütüphaneye kitap eklenmesini ve tüm kitapla
 * `add_book(book)`: Kütüphaneye yeni bir kitap ekler. Kitabın kütüphanede olup olmadığını kontrol eder.
 * `list_books()`: Kütüphanedeki tüm kitapları listeler.
 
-## Örnek Kullanım
+### Örnek Kullanım
 
 ```python
 # Kitap nesneleri oluştur
@@ -57,7 +57,7 @@ library.add_book(book3)
 # Tüm kitapları tekrar listele
 library.list_books()
 ```
-## Çıktısı
+### Çıktısı
 ```
 'Simyacı' kütüphaneye eklendi.
 'Suç ve Ceza' kütüphaneye eklendi.
@@ -90,7 +90,7 @@ Type: Novel
 
 *  Ödeme sistemi sınıflarını (kredi kartı, Bitcoin, Papara) ve örnek kullanım kodlarını içerir.
 
-## Sınıflar
+### Sınıflar
 
 * `Payment`: Temel ödeme sınıfı. Diğer ödeme yöntemleri bu sınıftan türetilmiştir.
     * `__init__(self, amount: float)`: Ödeme tutarını alır.
@@ -112,7 +112,7 @@ Type: Novel
     * `__init__(self, amount: float, papara_id: str, recipient_name: str)`: Papara ID, alıcı adı ve ödeme tutarını alır.
     * `process_payment(self)`: Papara ile ödeme işlemini simüle eder.
 
-## Örnek Kullanım
+### Örnek Kullanım
 
 ```python
 credit_card_payment = CreditCardPayment(5412.95, "TRY", "123456789253", "Saygın Yılmaz", "12/01", "054")
@@ -124,7 +124,7 @@ bitcoin_payment.process_payment()
 papara_payment = PaparaPayment(12500, "TRY", "9c58173a-e00d-41a8-8fd9-620868baab55", "Burçak Demir")
 papara_payment.process_payment()
 ```
-## Çıktısı
+### Çıktısı
 ```
 Sayın Saygın Yılmaz, adınıza kayıtlı sonu 9253 ile biten kartınızdan 5412.95 tutarında ödeme gerçekleştirdiniz...
 ec1788*** bitcoin cüzdan ile 10255 TL ödeme yapıldı. 
@@ -164,7 +164,7 @@ print(credit_card.make_payment("1234-5678-9876-5432", 100))
 print(credit_card.show_payment_history("1234-5678-9876-5432"))
 print(credit_card.credit_limit_increment("1234-5678-9876-5432", 15000))
 ```
-## Çıktısı
+### Çıktısı
 ```
 Sayın Sevgi Erdem bakiyeniz: 50000 TL...
 Sayın Sevgi Erdem 2024-07-06 17:28 tarihinde 1234*** numaralı kartınızdan 100 TL tutarında harcama yapılmıştır. Güncel bakiyeniz: 49900 TL...
@@ -176,7 +176,7 @@ Kredi limitiniz 15000 TL arttırıldı. Yeni limit: 35000 TL
 ## Polymorphism.py
 `Polymorphism.py`, temel matematiksel işlemleri gerçekleştiren sınıflar ve bu sınıfları kullanarak işlemleri dinamik olarak çağıran bir fonksiyon içerir.
 
-## Sınıflar
+### Sınıflar
 
 -   `Add_Process`: Toplama işlemini gerçekleştirir.
 -   `Subtraction_Process`: Çıkarma işlemini gerçekleştirir.
@@ -186,11 +186,11 @@ Kredi limitiniz 15000 TL arttırıldı. Yeni limit: 35000 TL
 
 Her sınıf, `calculate` adında bir metoda sahiptir. Bu metot, iki tamsayı parametre alır ve ilgili matematiksel işlemi gerçekleştirir.
 
-## Fonksiyon
+### Fonksiyon
 
 -   `mathematical_process(process, a: int, b: int)`: Verilen işlem nesnesini ve iki tamsayıyı kullanarak matematiksel işlemi gerçekleştirir.
 
-## Kullanım Örneği
+### Kullanım Örneği
 
 ```python
 
@@ -206,4 +206,33 @@ print(f'Multiplication: {mathematical_process(multiplication, 3 , 7)}')
 print(f'Divison: {mathematical_process(divison, 44, 6)}' )
 print(f'Mod: {mathematical_process(mod, 79, 13)}')
 ```
+<br>
 
+## Abstraction.py
+`Abstraction.py`, tam zamanlı ve yarı zamanlı çalışanların maaşlarını hesaplayan bir sistemdir. `ABC` (Abstract Base Class) kullanarak soyut sınıflar ve kalıtım ile polimorfizm prensiplerini uygular.
+
+### Sınıflar
+
+-   `Employee(ABC)`: Soyut çalışan sınıfı. Tüm çalışan türleri için temel sınıf olarak kullanılır.
+    -   `__init__(self, name: str, salary: float)`: Çalışan adını ve maaşını başlatır.
+    -   `@abstractmethod calculate_salary(self)`: Soyut metot. Tüm alt sınıflar tarafından uygulanmalıdır.
+    <br>
+    
+-   `FullTime_Employee(Employee)`: Tam zamanlı çalışan sınıfı.
+    -   `__init__(self, name, salary)`: Çalışan adını ve maaşını başlatır (temel sınıftan kalıtım).
+    -   `calculate_salary(self)`: Sabit maaşı döndürür.
+    <br>
+    
+-   `PartTime_Emloyee(Employee)`: Yarı zamanlı çalışan sınıfı.
+    -   `__init__(self, name, hourly_wage: int, working_hour: int)`: Çalışan adını, saatlik ücretini ve çalışma saatini başlatır. Maaşı hesaplar ve temel sınıfın başlatıcısını çağırır.
+    -   `calculate_salary(self)`: Çalışma saati ile saatlik ücreti çarparak maaşı hesaplar.
+
+### Kullanım Örneği
+
+```python
+
+fulltime_employee = FullTime_Employee("Salih Dere", 55000)
+parttime_employee = PartTime_Emloyee("Aslı Kaya", 1000, 25)
+
+print(f"{fulltime_employee.name} maaşı: {fulltime_employee.calculate_salary()} TL")
+print(f"{parttime_employee.name} maaşı: {parttime_employee.calculate_salary()} TL")
